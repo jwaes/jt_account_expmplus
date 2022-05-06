@@ -1,0 +1,1120 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<xs:schema elementFormDefault="qualified"  xmlns:xs="http://www.w3.org/2001/XMLSchema" >
+  <xs:annotation>
+    <xs:documentation xml:lang="en">   
+      Full schema for Expert/m Plus
+  </xs:documentation>
+  </xs:annotation>
+  <xs:element name="ImportExpMPlus" type="ImportExpMPlusType" />
+  <xs:simpleType name="IntegerType">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:integer">
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:length value="0" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+  <xs:simpleType name="AlfaType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="10" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="NameType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="30" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Name255Type">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="255" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CountryType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="2" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PercentageType">
+    <xs:restriction base="DecimalType">      
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="StreetType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="60" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="MailboxNumberType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="5" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CityType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="50" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="LanguageType">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:integer">
+          <xs:enumeration value="1" />
+          <xs:enumeration value="2" />
+          <xs:enumeration value="3" />
+          <xs:enumeration value="4" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:length value="0" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+  <xs:simpleType name="CurrencyType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="3" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="VATCodeType">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:integer">
+          <xs:enumeration value="0" />
+          <xs:enumeration value="1" />
+          <xs:enumeration value="2" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:length value="0" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+  <xs:simpleType name="VATStatusType">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:integer">
+          <xs:enumeration value="0" />
+          <xs:enumeration value="1" />
+          <xs:enumeration value="2" />
+          <xs:enumeration value="3" />
+          <xs:enumeration value="4" />
+          <xs:enumeration value="5" />
+          <xs:enumeration value="6" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:length value="0" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+  <xs:simpleType name="BoolType">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:integer">
+          <xs:enumeration value="0" />
+          <xs:enumeration value="1" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:length value="0" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+  <xs:simpleType name="GoodsCodeType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="8" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="IntrastatTransportType">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:integer">
+          <xs:enumeration value="0" />
+          <xs:enumeration value="1" />
+          <xs:enumeration value="2" />
+          <xs:enumeration value="3" />
+          <xs:enumeration value="4" />
+          <xs:enumeration value="5" />
+          <xs:enumeration value="7" />
+          <xs:enumeration value="8" />
+          <xs:enumeration value="9" />
+        </xs:restriction>
+      </xs:simpleType>      
+    </xs:union>
+  </xs:simpleType>
+
+  <xs:simpleType name="IntrastatDeliveryType">
+    <xs:union>      
+      <xs:simpleType>
+      <xs:restriction base="xs:string">        
+        <xs:enumeration value="EXW" />
+        <xs:enumeration value="FCA" />
+        <xs:enumeration value="FAS" />
+        <xs:enumeration value="FOB" />
+        <xs:enumeration value="CFR" />
+        <xs:enumeration value="CIF" />
+        <xs:enumeration value="CPT" />
+        <xs:enumeration value="CIP" />
+        <xs:enumeration value="DAF" />
+        <xs:enumeration value="DES" />
+        <xs:enumeration value="DEQ" />
+        <xs:enumeration value="DDU" />
+        <xs:enumeration value="DDP" />
+        <xs:enumeration value="XXX" />
+      </xs:restriction>
+    </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:integer">
+          <xs:enumeration value="0" />
+        </xs:restriction>
+      </xs:simpleType>  
+    </xs:union>
+  </xs:simpleType>  
+    
+  <xs:simpleType name="FreeFieldType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="255" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="DueType">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:integer">
+          <xs:enumeration value="0" />
+          <xs:enumeration value="1" />
+          <xs:enumeration value="2" />
+          <xs:enumeration value="3" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:length value="0" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+  <xs:simpleType name="BICType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="12" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="StatusType">
+    <xs:restriction base="xs:integer">
+      <xs:enumeration value="0" />
+      <xs:enumeration value="1" />
+      <xs:enumeration value="2" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="DescriptionType">  
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="255" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AccountCategoryType">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:integer">
+          <xs:enumeration value="0" />
+          <xs:enumeration value="1" />
+          <xs:enumeration value="2" />
+          <xs:enumeration value="3" />
+          <xs:enumeration value="4" />
+          <xs:enumeration value="5" />
+          <xs:enumeration value="6" />
+         <xs:enumeration value="7" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:length value="0" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+  <xs:simpleType name="AccountTypeType">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:integer">
+          <xs:enumeration value="0" />
+          <xs:enumeration value="1" />
+          <xs:enumeration value="22" />
+          <xs:enumeration value="52" />
+          <xs:enumeration value="53" />
+          <xs:enumeration value="54" />
+          <xs:enumeration value="55" />
+          <xs:enumeration value="56" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:length value="0" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+  <xs:simpleType name="TransferType">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:integer">
+          <xs:enumeration value="0" />
+          <xs:enumeration value="1" />
+          <xs:enumeration value="2" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:length value="0" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+  <xs:simpleType name="UnitType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="5" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="UnitDecType">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:integer">
+          <xs:enumeration value="0" />
+          <xs:enumeration value="1" />
+          <xs:enumeration value="2" />
+          <xs:enumeration value="3" />
+          <xs:enumeration value="4" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:length value="0" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+  <xs:simpleType name="StateType">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:integer">
+          <xs:enumeration value="0" />
+          <xs:enumeration value="1" />
+          <xs:enumeration value="2" />
+          <xs:enumeration value="3" />
+          <xs:enumeration value="4" />
+          <xs:enumeration value="5" />
+          <xs:enumeration value="6" />
+          <xs:enumeration value="7" />
+          <xs:enumeration value="8" />
+          <xs:enumeration value="9" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:length value="0" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+  <xs:simpleType name="DateType">
+    <xs:restriction base="xs:token">
+      <xs:pattern value="[0-9]{1,2}/[0-9]{1,2}/[0-9]{4}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="BankNumberType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="34" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="RefType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="255" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ModuleType">
+    <xs:restriction base="xs:integer">
+      <xs:enumeration value="1" />
+      <xs:enumeration value="2" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="LevelType">
+    <xs:restriction base="xs:integer">
+      <xs:enumeration value="1" />
+      <xs:enumeration value="2" />
+      <xs:enumeration value="3" />
+      <xs:enumeration value="4" />
+      <xs:enumeration value="5" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CurrencyCodeType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="3" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="DocTypeType">
+    <xs:restriction base="xs:integer">
+      <xs:enumeration value="10" />
+      <xs:enumeration value="30" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="FinDocTypeType">
+    <xs:restriction base="xs:integer">
+      <xs:enumeration value="20" />
+      <xs:enumeration value="40" />
+      <xs:enumeration value="120" />
+      <xs:enumeration value="140" />
+      <xs:enumeration value="999" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="DocStateType">
+    <xs:restriction base="xs:integer">
+      <xs:enumeration value="0" />
+      <xs:enumeration value="1" />
+      <xs:enumeration value="2" />
+      <xs:enumeration value="3" />
+      <xs:enumeration value="4" />
+      <xs:enumeration value="5" />
+      <xs:enumeration value="6" />
+      <xs:enumeration value="7" />
+      <xs:enumeration value="8" />
+      <xs:enumeration value="9" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="DocTypeTypeFin">
+    <xs:restriction base="xs:integer">
+      <xs:enumeration value="20" />
+      <xs:enumeration value="40" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="GoodscodeType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="8" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="RegionType">
+    <xs:restriction base="xs:integer">
+      <xs:enumeration value="0" />
+      <xs:enumeration value="1" />
+      <xs:enumeration value="2" />
+      <xs:enumeration value="3" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TransportType">
+    <xs:restriction base="xs:integer">
+      <xs:enumeration value="0" />
+      <xs:enumeration value="1" />
+      <xs:enumeration value="2" />
+      <xs:enumeration value="3" />
+      <xs:enumeration value="4" />
+      <xs:enumeration value="5" />
+      <xs:enumeration value="7" />
+      <xs:enumeration value="8" />
+      <xs:enumeration value="9" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="FinVentilType">
+    <xs:restriction base="xs:integer">
+      <xs:enumeration value="1" />
+      <xs:enumeration value="2" />
+      <xs:enumeration value="3" />
+      <xs:enumeration value="4" />
+      <xs:enumeration value="5" />
+      <xs:enumeration value="6" />
+      <xs:enumeration value="7" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="DebCreType">
+    <xs:restriction base="xs:integer">
+      <xs:enumeration value="1" />
+      <xs:enumeration value="-1" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TypeFinType">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:integer">
+          <xs:enumeration value="0" />
+          <xs:enumeration value="1" />
+          <xs:enumeration value="2" />
+          <xs:enumeration value="3" />
+          <xs:enumeration value="4" />
+          <xs:enumeration value="11" />
+          <xs:enumeration value="12" />
+          <xs:enumeration value="13" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:minLength value="0"/>
+          <xs:maxLength value="2" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+  <xs:simpleType name="SunVentilType">
+    <xs:restriction base="xs:integer">
+      <xs:enumeration value="1" />
+      <xs:enumeration value="2" />
+      <xs:enumeration value="3" />
+      <xs:enumeration value="4" />
+      <xs:enumeration value="5" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TypeDivType">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:integer">
+          <xs:enumeration value="0" />
+          <xs:enumeration value="1" />
+          <xs:enumeration value="2" />
+          <xs:enumeration value="3" />
+          <xs:enumeration value="4" />
+          <xs:enumeration value="11" />
+          <xs:enumeration value="12" />
+          <xs:enumeration value="13" />
+          <xs:enumeration value="61" />
+          <xs:enumeration value="62" />
+          <xs:enumeration value="70" />
+          <xs:enumeration value="71" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:length value="0" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+
+  <xs:simpleType name="TypeAanType">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:integer">
+          <xs:enumeration value="0" />
+          <xs:enumeration value="1" />
+          <xs:enumeration value="2" />
+          <xs:enumeration value="3" />
+          <xs:enumeration value="4" />
+          <xs:enumeration value="5" />
+          <xs:enumeration value="6" />          
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:length value="0" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+
+  <xs:simpleType name="DocNumberType">    
+    <xs:restriction base="xs:integer">
+      <xs:minInclusive value ="0"/>
+      <xs:maxInclusive value ="999999999"/>
+    </xs:restriction>    
+  </xs:simpleType>
+
+  <xs:simpleType name="DecimalType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[\-+]?[0-9]{1,14}[,.]?[0-9]{0,4}"/>
+      <xs:minLength value="1"/>
+      <xs:maxLength value="20"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="DelivDateType">
+    <xs:restriction base="xs:integer">
+      <xs:enumeration value="0" />
+      <xs:enumeration value="1" />
+      <xs:enumeration value="2" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="DatePayedType">
+    <xs:restriction base="xs:integer">
+      <xs:enumeration value="0" />
+      <xs:enumeration value="1" />
+      <xs:enumeration value="2" />
+      <xs:enumeration value="3" />
+      <xs:enumeration value="4" />
+    </xs:restriction>
+  </xs:simpleType>
+
+    <xs:complexType name="ImportExpMPlusType">
+    <xs:all>
+    <xs:element minOccurs="0" maxOccurs="1" name="Customers" type="CustomerType" />
+    <xs:element minOccurs="0" maxOccurs="1" name="Suppliers" type="SupplierType" />
+    <xs:element minOccurs="0" maxOccurs="1" name="Accounts" type="AccountType" />
+    <xs:element minOccurs="0" maxOccurs="1" name="AnalyticAccounts" type="AnalyticAccountType" />
+    <xs:element minOccurs="0" maxOccurs="1" name="ISCustomers" type="ISCustomerType" />
+    <xs:element minOccurs="0" maxOccurs="1" name="ISSuppliers" type="ISSupplierType" />
+    <xs:element minOccurs="0" maxOccurs="1" name="Sales" type="SaleType" />
+    <xs:element minOccurs="0" maxOccurs="1" name="Purchases" type="PurchaseType" />
+    <xs:element minOccurs="0" maxOccurs="1" name="Sundries" type="SundryType" />
+    <xs:element minOccurs="0" maxOccurs="1" name="Financials" type="FinancialType" />
+    </xs:all>      
+  </xs:complexType>
+  
+  <xs:complexType name="CustomerType"> 
+  
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="unbounded" name="Customer">
+        <xs:complexType>
+          <xs:all>
+            <xs:element minOccurs="1" maxOccurs="1" name="Prime" type="IntegerType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Alfa" type="AlfaType" />
+            <xs:element minOccurs="1" maxOccurs="1" name="Name" type="Name255Type" />
+            <xs:element minOccurs="1" maxOccurs="1" name="Country" type="CountryType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Street" type="StreetType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="HouseNumber" type="AlfaType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="MailboxNumber" type="MailboxNumberType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="ZipCode" type="AlfaType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="City" type="CityType" />
+            <xs:element minOccurs="1" maxOccurs="1" name="Language" type="LanguageType" />
+            <xs:element minOccurs="1" maxOccurs="1" name="CurrencyCode" type="CurrencyType" />
+            <xs:element minOccurs="1" maxOccurs="1" name="VATCode" type="VATCodeType" />
+            <xs:element minOccurs="1" maxOccurs="1" name="VATStatus" type="VATStatusType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="CountryVATNumber" type="CountryType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="VATNumber" type="NameType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Rappel" type="VATCodeType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Dom" type="BoolType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Extra1" type="Name255Type" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Extra2" type="Name255Type" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Extra3" type="Name255Type" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Phone" type="NameType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Fax" type="NameType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="GSM" type="NameType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Email" type="CityType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="AccountSale" type="IntegerType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="GoodsCode" type="GoodsCodeType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="IntrastatTransport" type="IntrastatTransportType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="IntrastatTransaction" type="IntrastatTransportType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="CountryBankNumber" type="CountryType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="CountryBankNumber2" type="CountryType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="CountryBankNumber3" type="CountryType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="CountryBankNumber4" type="CountryType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="CountryBankNumber5" type="CountryType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="BankNumber" type="NameType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="BankNumber2" type="NameType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="BankNumber3" type="NameType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="BankNumber4" type="NameType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="BankNumber5" type="NameType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="CountryBankNumberDom" type="CountryType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="BankNumberDom" type="NameType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="AccountCentral" type="IntegerType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="CustomerGroup" type="DescriptionType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Title" type="NameType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="FreeField1" type="FreeFieldType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="FreeField2" type="FreeFieldType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Due" type="DueType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="DueDays" type="IntegerType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Website" type="CityType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="IntrastatDelivery" type="IntrastatDeliveryType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="BIC" type="BICType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="BIC2" type="BICType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="BIC3" type="BICType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="BIC4" type="BICType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="BIC5" type="BICType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="BICDOM" type="BICType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Ventil" type="IntegerType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="MEMO" type="DescriptionType" />
+		      	<xs:element minOccurs="0" maxOccurs="1" name="DISCOUNTPERC" type="DecimalType" />
+            <xs:element minOccurs="1" maxOccurs="1" name="Status" type="StatusType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="DelivDate" type="DelivDateType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="DatePayed" type="DatePayedType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="ElecTb" type="BoolType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="CODADiscountTerm" type="IntegerType" />
+          </xs:all>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SupplierType">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="unbounded" name="Supplier">
+        <xs:complexType>
+          <xs:all>
+            <xs:element minOccurs="1" maxOccurs="1" name="Prime" type="IntegerType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Alfa" type="AlfaType" />
+            <xs:element minOccurs="1" maxOccurs="1" name="Name" type="Name255Type" />
+            <xs:element minOccurs="1" maxOccurs="1" name="Country" type="CountryType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Street" type="StreetType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="HouseNumber" type="AlfaType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="MailboxNumber" type="MailboxNumberType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="ZipCode" type="AlfaType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="City" type="CityType" />
+            <xs:element minOccurs="1" maxOccurs="1" name="Language" type="LanguageType" />
+            <xs:element minOccurs="1" maxOccurs="1" name="CurrencyCode" type="CurrencyType" />
+            <xs:element minOccurs="1" maxOccurs="1" name="VATCode" type="VATCodeType" />
+            <xs:element minOccurs="1" maxOccurs="1" name="VATStatus" type="VATStatusType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="VATNumber" type="NameType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Extra1" type="Name255Type" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Extra2" type="Name255Type" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Extra3" type="Name255Type" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Phone" type="NameType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Fax" type="NameType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="GSM" type="NameType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Email" type="CityType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="AccountPurchase" type="IntegerType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="GoodsCode" type="GoodsCodeType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="IntrastatTransport" type="IntrastatTransportType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="IntrastatTransaction" type="IntrastatTransportType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="IntrastatDelivery" type="IntrastatDeliveryType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="CountryBankNumber1" type="CountryType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="BankNumber1" type="BankNumberType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="CountryBankNumber2" type="CountryType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="BankNumber2" type="BankNumberType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="CountryBankNumber3" type="CountryType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="BankNumber3" type="BankNumberType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="CountryBankNumber4" type="CountryType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="BankNumber4" type="BankNumberType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="CountryBankNumber5" type="CountryType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="BankNumber5" type="BankNumberType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Title" type="NameType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Website" type="CityType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="CountryVATNumber" type="CountryType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Ventil" type="IntegerType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="VATTarif" type="IntegerType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="AccountCentral" type="IntegerType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Due" type="DueType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="DueDays" type="IntegerType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="SupplierGroup" type="DescriptionType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="FreeField1" type="FreeFieldType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="FreeField2" type="FreeFieldType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="BIC1" type="BICType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="BIC2" type="BICType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="BIC3" type="BICType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="BIC4" type="BICType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="BIC5" type="BICType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="MEMO" type="DescriptionType" />
+	      		<xs:element minOccurs="0" maxOccurs="1" name="DISCOUNTPERC" type="DecimalType" />
+		      	<xs:element minOccurs="0" maxOccurs="1" name="CARD" type="IntegerType" />
+            <xs:element minOccurs="1" maxOccurs="1" name="Status" type="StatusType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Dom" type="BoolType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="DelivDate" type="DelivDateType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="DatePayed" type="DatePayedType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="VatRefundCode" type="IntegerType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="VatRefundSubCode" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="VatRefundText" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="VatRefundLanguage" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="VatRefundType" type="BoolType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="CODADiscountTerm" type="IntegerType" />
+          </xs:all>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="AccountType">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="unbounded" name="Account">
+        <xs:complexType>
+          <xs:all>
+            <xs:element minOccurs="1" maxOccurs="1" name="Prime" type="xs:integer" />
+            <xs:element minOccurs="0" maxOccurs="1" name="AltKey" type="IntegerType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Description1" type="DescriptionType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Description2" type="DescriptionType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Description3" type="DescriptionType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Description4" type="DescriptionType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Type" type="AccountCategoryType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="PrivateExp" type="PercentageType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="VATND" type="PercentageType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="RejectedExp" type="PercentageType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="BookPurchases" type="BoolType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="BookSales" type="BoolType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="BookFinancial" type="BoolType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="BookSundries" type="BoolType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Detail" type="BoolType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Transfer" type="TransferType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="AccountType" type="AccountTypeType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="FreeField1" type="DescriptionType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="FreeField2" type="DescriptionType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="FreeField3" type="DescriptionType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="FreeField4" type="DescriptionType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Unit1" type="UnitType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Unit2" type="UnitType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Unit1Dec" type="UnitDecType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Unit2Dec" type="UnitDecType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="PerCars" type="TransferType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="DoubleTurnover" type="BoolType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="CreaDoc" type="TransferType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Account_ActPas" type="IntegerType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Account_VATND" type="IntegerType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Anal1" type="TransferType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Anal2" type="TransferType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Invest" type="BoolType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Account_Depr" type="IntegerType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="InvestAllowance" type="TransferType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="MethodDepr" type="BoolType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="TermDepr" type="PercentageType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="TermDeprYr" type="BoolType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="CoefResVal" type="PercentageType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="State" type="StateType" />
+            <xs:element minOccurs="1" maxOccurs="1" name="Status" type="StatusType" />
+          </xs:all>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ISCustomerType">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="unbounded" name="ISCustomer">
+        <xs:complexType>
+          <xs:all>
+            <xs:element minOccurs="1" maxOccurs="1" name="Account" type="xs:integer" />
+            <xs:element minOccurs="1" maxOccurs="1" name="DocType" type="DocTypeType" />
+            <xs:element minOccurs="1" maxOccurs="1" name="DocNumber" type="DocNumberType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="DocDate" type="DateType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="DueDate" type="DateType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="CurrencyCode" type="CurrencyCodeType" />
+            <xs:element minOccurs="1" maxOccurs="1" name="Customer_Prime" type="xs:integer" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Amount" type="DecimalType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Discount" type="DecimalType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="VATAmount" type="DecimalType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="OurRef" type="RefType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="YourRef" type="RefType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="State" type="StateType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Rate" type="DecimalType" />
+            <xs:element minOccurs="1" maxOccurs="1" name="Status" type="BoolType" />
+          </xs:all>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ISSupplierType">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="unbounded" name="ISSupplier">
+        <xs:complexType>
+          <xs:all>
+            <xs:element minOccurs="1" maxOccurs="1" name="Account" type="xs:integer" />
+            <xs:element minOccurs="1" maxOccurs="1" name="DocType" type="DocTypeType" />
+            <xs:element minOccurs="1" maxOccurs="1" name="DocNumber" type="DocNumberType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="DocDate" type="DateType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="DueDate" type="DateType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="CurrencyCode" type="CurrencyCodeType" />
+            <xs:element minOccurs="1" maxOccurs="1" name="Supplier_Prime" type="xs:integer" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Amount" type="DecimalType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Discount" type="DecimalType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="VATAmount" type="DecimalType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="OurRef" type="RefType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="YourRef" type="RefType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="State" type="StateType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Rate" type="DecimalType" />
+            <xs:element minOccurs="1" maxOccurs="1" name="Status" type="BoolType" />
+          </xs:all>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="IntrastatType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Intrastat">
+        <xs:complexType>
+          <xs:all>
+            <xs:element minOccurs="0" maxOccurs="1" name="Mass" type="DecimalType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="StatUnits" type="DecimalType" />
+            <xs:element minOccurs="1" maxOccurs="1" name="Value" type="DecimalType" />
+            <xs:element minOccurs="1" maxOccurs="1" name="Destination" type="CountryType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Transport" type="TransportType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Transaction" type="TransportType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Goodscode" type="GoodscodeType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Region" type="RegionType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Delivery" type="IntrastatDeliveryType" />
+          </xs:all>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="AnalyticAccountType">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="unbounded" name="AnalyticAccount">
+        <xs:complexType>
+          <xs:all>
+            <xs:element minOccurs="1" maxOccurs="1" name="Module" type="ModuleType" />
+            <xs:element minOccurs="1" maxOccurs="1" name="Level" type="LevelType" />
+            <xs:element minOccurs="1" maxOccurs="1" name="Key" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Description1" type="DescriptionType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Description2" type="DescriptionType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Description3" type="DescriptionType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Description4" type="DescriptionType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="AllocationKey" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Closed" type="BoolType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="FreeField1" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="FreeField2" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="FreeField3" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="FreeField4" type="xs:string" />
+            <xs:element minOccurs="1" maxOccurs="1" name="Status" type="BoolType" />
+          </xs:all>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="AnalyticType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Analytic">
+        <xs:complexType>
+          <xs:all>
+            <xs:element minOccurs="0" maxOccurs="1" name="Level1" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Level2" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Level3" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Level4" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Level5" type="xs:string" />
+            <xs:element minOccurs="1" maxOccurs="1" name="Amount" type="DecimalType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Unit1" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Unit2" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Ref" type="RefType" />
+          </xs:all>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="SaleDetailType">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="unbounded" name="Detail">
+        <xs:complexType>
+          <xs:all>
+            <xs:element minOccurs="1" maxOccurs="1" name="Account" type="xs:integer" />
+            <xs:element minOccurs="1" maxOccurs="1" name="Amount" type="DecimalType" />
+            <xs:element minOccurs="1" maxOccurs="1" name="DebCre" type="DebCreType" />
+            <xs:element minOccurs="1" maxOccurs="1" name="Ventil" type="xs:integer" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Ref" type="RefType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Unit1" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Unit2" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="VAT1" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="VATProc" type="PercentageType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="MOSSDefault" type="BoolType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Analytics1" type="AnalyticType" />
+            <xs:element minOccurs="0" maxOccurs="1"  name="Analytics2" type="AnalyticType" />
+          </xs:all>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="SaleType">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="unbounded" name="Sale">
+        <xs:complexType>
+          <xs:all>
+            <xs:element minOccurs="0" maxOccurs="1" name="Journal_Prime" type="xs:integer" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Year_Alfa" type="xs:integer" />
+            <xs:element minOccurs="1" maxOccurs="1" name="DocType" type="DocTypeType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="DocState" type="DocStateType" />
+            <xs:element minOccurs="1" maxOccurs="1" name="Customer_Prime" type="xs:integer" />
+            <xs:element minOccurs="1" maxOccurs="1" name="DocNumber" type="DocNumberType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="AccountingPeriod" type="xs:integer" />
+            <xs:element minOccurs="0" maxOccurs="1" name="VATMonth" type="xs:integer" />
+            <xs:element minOccurs="0" maxOccurs="1" name="DocDate" type="DateType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="DueDate" type="DateType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="OurRef" type="RefType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="YourRef" type="RefType" />
+            <xs:element minOccurs="1" maxOccurs="1" name="Amount" type="DecimalType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Discount" type="DecimalType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Ventil" type="IntegerType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="CurrencyCode" type="CurrencyCodeType" />
+			      <xs:element minOccurs="0" maxOccurs="1" name="Rate" type="DecimalType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="VATAmount" type="DecimalType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="OGM" type="DescriptionType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Annex" type="DescriptionType" />            
+            <xs:element minOccurs="1" maxOccurs="1" name="Details" type="SaleDetailType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Intrastats" type="IntrastatType" />
+            <xs:element minOccurs="1" maxOccurs="1" name="Status" type="BoolType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="DelivDate" type="DateType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="DatePayed" type="DateType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="PayDate" type="DateType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="PayCash" type="xs:integer" />
+          </xs:all>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="PurchaseDetailType">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="unbounded" name="Detail">
+        <xs:complexType>
+          <xs:all>
+            <xs:element minOccurs="1" maxOccurs="1" name="Account" type="xs:integer" />
+            <xs:element minOccurs="1" maxOccurs="1" name="Amount" type="DecimalType" />
+            <xs:element minOccurs="1" maxOccurs="1" name="DebCre" type="DebCreType" />
+            <xs:element minOccurs="1" maxOccurs="1" name="Ventil" type="xs:integer" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Ref" type="RefType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Unit1" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Unit2" type="xs:string" />            
+            <xs:element minOccurs="0" maxOccurs="1" name="VATProc" type="xs:integer" />
+            <xs:element minOccurs="0" maxOccurs="1" name="TypeAan" type="TypeAanType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="VAT1" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="VAT2" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="VAT3" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Analytics1" type="AnalyticType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Analytics2" type="AnalyticType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="VatRefundCode" type="IntegerType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="VatRefundSubCode" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="VatRefundText" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="VatRefundLanguage" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="VatRefundType" type="BoolType" />
+          </xs:all>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="PurchaseType">
+  
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="unbounded" name="Purchase">
+        <xs:complexType>
+          <xs:all>
+            <xs:element minOccurs="1" maxOccurs="1" name="Journal_Prime" type="xs:integer" />
+            <xs:element minOccurs="1" maxOccurs="1" name="Year_Alfa" type="xs:integer" />
+            <xs:element minOccurs="1" maxOccurs="1" name="DocType" type="DocTypeType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="DocState" type="DocStateType" />
+            <xs:element minOccurs="1" maxOccurs="1" name="Supplier_Prime" type="xs:integer" />
+            <xs:element minOccurs="1" maxOccurs="1" name="DocNumber" type="DocNumberType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="AccountingPeriod" type="xs:integer" />
+            <xs:element minOccurs="0" maxOccurs="1" name="VATMonth" type="xs:integer" />
+            <xs:element minOccurs="0" maxOccurs="1" name="DocDate" type="DateType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="DueDate" type="DateType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="OurRef" type="RefType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="YourRef" type="RefType" />
+            <xs:element minOccurs="1" maxOccurs="1" name="Amount" type="DecimalType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Discount" type="DecimalType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Ventil" type="IntegerType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="CurrencyCode" type="CurrencyCodeType" />
+			      <xs:element minOccurs="0" maxOccurs="1" name="Rate" type="DecimalType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="VATAmount" type="DecimalType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="OGM" type="DescriptionType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Annex" type="DescriptionType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="DelivDate" type="DateType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="DatePayed" type="DateType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="PayDate" type="DateType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="PayCash" type="xs:integer" />
+            <!--xs:sequence-->
+              <xs:element minOccurs="1" maxOccurs="1" name="Details" type="PurchaseDetailType" />
+              <xs:element minOccurs="0" maxOccurs="1" name="Intrastats" type="IntrastatType" />
+            <!--/xs:sequence-->
+            <xs:element minOccurs="1" maxOccurs="1" name="Status" type="BoolType" />
+          </xs:all>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="FinDetailType">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="unbounded" name="Detail">
+        <xs:complexType>
+          <xs:all>
+            <xs:element minOccurs="1" maxOccurs="1" name="Ventil" type="FinVentilType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Account" type="IntegerType" />
+            <xs:element minOccurs="1" maxOccurs="1" name="Amount" type="DecimalType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="AmountAcc" type="DecimalType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="CurrencyCode" type="CurrencyCodeType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Customer_Prime" type="IntegerType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Date" type="DateType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="DebCre" type="DebCreType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="DocNumber" type="DocNumberType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="DocType" type="FinDocTypeType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Rate" type="DecimalType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Ref" type="RefType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Supplier_Prime" type="IntegerType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="TypeFin" type="TypeFinType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Unit1" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Unit2" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="VAT1" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="VATProc" type="IntegerType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="VAT" type="DecimalType" />            
+            <xs:element minOccurs="0" maxOccurs="1" name="Analytics1" type="AnalyticType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Analytics2" type="AnalyticType" />
+          </xs:all>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="FinancialType">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="unbounded" name="Financial">
+        <xs:complexType>
+          <xs:all>
+            <xs:element minOccurs="0" maxOccurs="1" name="Journal_Prime" type="xs:integer" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Year_Alfa" type="xs:integer" />
+            <xs:element minOccurs="1" maxOccurs="1" name="DocNumber" type="DocNumberType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="AccountingPeriod" type="xs:integer" />
+            <xs:element minOccurs="0" maxOccurs="1" name="VATMonth" type="xs:integer" />
+            <xs:element minOccurs="1" maxOccurs="1" name="DocDate" type="DateType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="OpeningBalance" type="DecimalType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="FinalBalance" type="DecimalType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Annex" type="DescriptionType" />
+            <xs:element minOccurs="1" maxOccurs="1" name="Details" type="FinDetailType" />
+            <xs:element minOccurs="1" maxOccurs="1" name="Status" type="BoolType" />
+          </xs:all>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="SundryDetailType">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="unbounded" name="Detail">
+        <xs:complexType>
+          <xs:all>
+            <xs:element minOccurs="1" maxOccurs="1" name="Ventil" type="SunVentilType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Account" type="IntegerType" />
+            <xs:element minOccurs="1" maxOccurs="1" name="Amount" type="DecimalType" />
+            <xs:element minOccurs="1" maxOccurs="1" name="AmountRef" type="DecimalType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="CurrencyCode" type="CurrencyCodeType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Customer_Prime" type="IntegerType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="DebCre" type="DebCreType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="DocNumber" type="DocNumberType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="DocType" type="FinDocTypeType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Ref" type="RefType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Supplier_Prime" type="IntegerType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="TypeDiv" type="TypeDivType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Unit1" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Unit2" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Analytics1" type="AnalyticType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Analytics2" type="AnalyticType" />
+          </xs:all>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SundryType">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="unbounded" name="Sundry">
+        <xs:complexType>
+          <xs:all>
+            <xs:element minOccurs="0" maxOccurs="1" name="Journal_Prime" type="xs:integer" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Year_Alfa" type="xs:integer" />
+            <xs:element minOccurs="1" maxOccurs="1" name="DocNumber" type="DocNumberType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="AccountingPeriod" type="xs:integer" />
+            <xs:element minOccurs="0" maxOccurs="1" name="VATMonth" type="xs:integer" />
+            <xs:element minOccurs="1" maxOccurs="1" name="DocDate" type="DateType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Annex" type="DescriptionType" />
+            <xs:element minOccurs="1" maxOccurs="1" name="Details" type="SundryDetailType" />
+            <xs:element minOccurs="1" maxOccurs="1" name="Status" type="StatusType" />
+          </xs:all>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  </xs:schema>
